@@ -1,0 +1,75 @@
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    margin-top : 10%;
+  }
+}
+
+/*
+ * Blog name and description
+ */
+
+.blog-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.blog-title {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 30px;
+  font-weight: normal;
+  color: black;
+}
+.blog-description {
+  font-size: 20px;
+  color: #999;
+}
+
+/* Tags */
+
+/*
+.row{
+	margin-top: 7px;
+  margin-bottom: 7px;
+}
+*/
+
+.col-lg-6{
+  margin-top: 7px;
+  margin-bottom: 7px;  
+}
+
+
+/* jumbotron */
+.jumbotron{
+
+  margin-top : 130px;
+}
+
+
+.btn-warning {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}

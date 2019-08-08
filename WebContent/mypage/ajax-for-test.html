@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        function ajaxGet(url, fpOK, fpFail) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        if (fpOK) {
+                            fpOK(xhr.responseText);
+                        }
+                    } else {
+                        if (fpFail) {
+                            alert("error: " + xhr.status);
+                        }
+                    }
+                }
+            };
+            xhr.open('GET', url, true);
+            xhr.send(null);
+        }
+
+        function test() {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.querySelector('#info').innerHTML = xhr.responseText;
+                }
+            }
+        }
+
+        window.onload=function(){
+			var op =document.getElementById("btn");
+			op.onclick = function()
+			{
+				
+				var email =document.getElementById("email");
+				var url ="main.html";
+				ajaxGet(url, function(rt){
+					//var ro = window.eval("("+ rt.trim() + ")");
+                   var info= document.getElementById("info");
+						info.innerHTML=rt;
+					
+				});
+			};
+            
+	};
+    function clicked(page){
+                var email =document.getElementById("email");
+				var url =page+".html";
+				ajaxGet(url, function(rt){
+                   var info= document.getElementById("info");
+						info.innerHTML=rt;
+					
+				});
+            }
+    </script>
+</head>
+
+<body>
+    <input type="file" name="file_object" id="file_send">
+    <input type="button" value="전송">
+    <input type="button"  onclick="clicked('main')" value="main">
+    <input type="button"  onclick="clicked('card')" value="card">
+    <input type="button"  onclick="clicked('regist')" value="regist">
+
+    <div id="info">
+        현재는 내용이 없습니다.
+    </div>
+</body>
+
+</html>
