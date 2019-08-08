@@ -1,3 +1,14 @@
+<%@page import="vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jc"%><%!MemberVO vo = null;%>
+<%
+	vo = (MemberVO) session.getAttribute("member");
+	if (vo != null)
+		System.out.println(vo.getEmail());
+
+	pageContext.setAttribute("vo", vo);
+%>
 <!DOCTYPE html>
 <html>
 
@@ -158,7 +169,7 @@
             email.replaceWith('<input id="email" class="profile-text" type="text" name="email"  value="' + email.text() + '"/>');
             phone.replaceWith('<input id="phone" class="profile-text"  type="text" name="phone"  value="' + phone.text() + '"/>');
             ;
-         } else { // ³ªÁß¿¡ ±×³É ¸®´ÙÀÌ·ºÆ®·Î ¹Ù²ÙÀÚ, 1¾È ¼­¹ö¿¡¼­ °¡Á®¿Í¼­ º¯°æÀ»ÇÑ´Ù. 2¹ø ¿¡·¯Ä³Ä¡ÇØ¼­ÇÑ´Ù.
+         } else { // ë‚˜ì¤‘ì— ê·¸ëƒ¥ ë¦¬ë‹¤ì´ë ‰íŠ¸ë¡œ ë°”ê¾¸ìž, 1ì•ˆ ì„œë²„ì—ì„œ ê°€ì ¸ì™€ì„œ ë³€ê²½ì„í•œë‹¤. 2ë²ˆ ì—ëŸ¬ìºì¹˜í•´ì„œí•œë‹¤.
             name.replaceWith('<td id="name" style="color:black; " >' + name.val() + '</td>');
             email.replaceWith('<td id="email" style="color:black;">' + email.val() + '</td>');
             phone.replaceWith('<td id="phone" style="color:black;" >' + phone.val() + '</td>');
@@ -170,7 +181,7 @@
 </head>
 
 <body>
-   <!-- header ºÎºÐ-->
+   <!-- header ë¶€ë¶„-->
    <jsp:include page="../header.jsp"></jsp:include>
 
 
@@ -180,7 +191,7 @@
    <div class="container">
       <div class="row" style="height: 290px ">
          <div class="image-panel panel panel-default col-md-4 col-xs-12" style="height: 290px;">
-            <div class="panel-heading">³» ÇÁ·ÎÇÊ</div>
+            <div class="panel-heading">ë‚´ í”„ë¡œí•„</div>
             <div class="panel-body " style=" text-align:center">
 
                <div style=" text-align:center width: 200px; height: 210px; overflow: hidden;">
@@ -198,23 +209,23 @@
          <div>
             <div class="infomation-panel col-md-8 col-xs-12">
                <div class="panel panel-default " style="height:200px;margin: 0px 0 5px 0;">
-                  <div class="panel-heading">³» Á¤º¸</div>
+                  <div class="panel-heading">ë‚´ ì •ë³´</div>
                   <div class="panel-body ">
                      <table id="profile" class="table table-notborder" style="margin: 0px !important;">
                         <tbody>
                            <tr>
-                              <td>´Ð³×ÀÓ</td>
-                              <td id="name">ÇÑÀ¯Áø</td>
+                              <td>ë‹‰ë„¤ìž„</td>
+                              <td id="name">í•œìœ ì§„</td>
                               <td>
                                  <span style="float: right; margin:-10px -10px 0 0;" onclick="edit_profile()"
                                  class="glyphicon glyphicon-pencil"></span> </td>
                               </tr>
                               <tr>
-                                 <td>ÀÌ¸ÞÀÏ</td>
+                                 <td>ì´ë©”ì¼</td>
                                  <td id="email">hanyou96@naver.com</td>
                               </tr>
                               <tr>
-                                 <td>ÀüÈ­</td>
+                                 <td>ì „í™”</td>
                                  <td id="phone">010-5035-9864</td>
                               </tr>
                            </tbody>
@@ -227,23 +238,23 @@
                   <div>
                      <ul class="row" style="margin-left:-15px;">
                         <li class="col-xs-6 col-md-3 ">
-                           <div class="bg-primary temp_list"><label style="font-size: 8pt;">¸®ºä</label>
-                              <div style="font-size:20px;font-weight: 900;">100°³</div>
+                           <div class="bg-primary temp_list"><label style="font-size: 8pt;">ë¦¬ë·°</label>
+                              <div style="font-size:20px;font-weight: 900;">100ê°œ</div>
                            </div>
                         </li>
                         <li class="col-xs-6  col-md-3 " style="">
-                           <div class="temp_list"><label style="  font-size: 8pt;">ÇöÀç°³¼³¸ðÀÓ</label>
-                              <div style="font-size:20px;font-weight: 900;">2°³</div>
+                           <div class="temp_list"><label style="  font-size: 8pt;">í˜„ìž¬ê°œì„¤ëª¨ìž„</label>
+                              <div style="font-size:20px;font-weight: 900;">2ê°œ</div>
                            </div>
                         </li>
                         <li class="col-xs-6  col-md-3">
-                           <div class="temp_list"><label style="font-size: 8pt;">ÃÑ¸ðÀÓ°³¼³¼ö</label>
-                              <div style="font-size:20px;font-weight: 900;">5È¸</div>
+                           <div class="temp_list"><label style="font-size: 8pt;">ì´ëª¨ìž„ê°œì„¤ìˆ˜</label>
+                              <div style="font-size:20px;font-weight: 900;">5íšŒ</div>
                            </div>
                         </li>
                         <li class="col-xs-6  col-md-3 ">
-                           <div class="temp_list"><label style="font-size: 8pt;">ÀÎÁõ¿©ºÎ</label>
-                              <div style="font-size:20px;font-weight: 900;">ºñÀÎÁõ</div>
+                           <div class="temp_list"><label style="font-size: 8pt;">ì¸ì¦ì—¬ë¶€</label>
+                              <div style="font-size:20px;font-weight: 900;">ë¹„ì¸ì¦</div>
                            </div>
                         </li>
                      </ul>
@@ -251,13 +262,13 @@
                </div>
             </div>
          </div>
-           <!-- ³×ºñ°ÔÀÌ¼ÇºÎºÐ-->
+           <!-- ë„¤ë¹„ê²Œì´ì…˜ë¶€ë¶„-->
          <div class="mypage-nav ">
             <table style="width: 100%">
                <tr class="row">
-                  <td class=" col-xs-4"><a href="mypageMain.html">Âü¿©¸ðÀÓ³»¿ª</a></td>
-                  <td class=" col-xs-4"><a href="mypagecard.html">Ä«µå³»¿ª</a></td>
-                  <td class=" col-xs-4"><a href="mypageRegist.html">½ÅÃ»ÀÚ°ü¸®</a></td>
+                  <td class=" col-xs-4"><a href="mypageMain.html">ì°¸ì—¬ëª¨ìž„ë‚´ì—­</a></td>
+                  <td class=" col-xs-4"><a href="mypagecard.html">ì¹´ë“œë‚´ì—­</a></td>
+                  <td class=" col-xs-4"><a href="mypageRegist.html">ì‹ ì²­ìžê´€ë¦¬</a></td>
                </tr>
             </table>
 
@@ -266,13 +277,13 @@
 
 
 
-          <!-- ¸®½ºÆ®ºÎºÐ-->
+          <!-- ë¦¬ìŠ¤íŠ¸ë¶€ë¶„-->
 
 
 
 
          <div class="row">
-            <p style="font-size:25px">[Âü¿©¸ðÀÓ³»¿ª]</p>
+            <p style="font-size:25px">[ì°¸ì—¬ëª¨ìž„ë‚´ì—­]</p>
          </div>
          <div class="row">
             <div class="col-sm-4 red card">aasdasd</div>
@@ -287,7 +298,7 @@
 
       </div>
 
-      <!-- ÆäÀÌÁö³×ÀÌ¼ÇºÎºÐ-->
+      <!-- íŽ˜ì´ì§€ë„¤ì´ì…˜ë¶€ë¶„-->
       <div style="text-align: center">
          <nav>
             <ul class="pagination">
@@ -321,11 +332,11 @@
          </div>
          <div class="row ">
             <div class="col-xs-2 col-sm-1 footer-content"></div>
-            <div class="col-xs-4 col-sm-2 footer-content">±èÁ¤ÀÎ</div>
-            <div class="col-xs-4 col-sm-2 footer-content">ÀÌÁ¾Çå</div>
-            <div class="col-xs-4 col-sm-2 footer-content">°­¼ºÇõ</div>
-            <div class="col-xs-4 col-sm-2 footer-content">ÇÑÀ¯Áø</div>
-            <div class="col-xs-4 col-sm-2 footer-content">À¯¼º¹Î</div>
+            <div class="col-xs-4 col-sm-2 footer-content">ê¹€ì •ì¸</div>
+            <div class="col-xs-4 col-sm-2 footer-content">ì´ì¢…í—Œ</div>
+            <div class="col-xs-4 col-sm-2 footer-content">ê°•ì„±í˜</div>
+            <div class="col-xs-4 col-sm-2 footer-content">í•œìœ ì§„</div>
+            <div class="col-xs-4 col-sm-2 footer-content">ìœ ì„±ë¯¼</div>
             <div class="col-xs-1"></div>
             <div class="row">
                <div class="col-xs-12 col-sm-12" style="height: 5vh"></div>
@@ -334,13 +345,13 @@
       </footer>
 
 
-       <!-- ¸ð´ÞÃ¢ -->
+       <!-- ëª¨ë‹¬ì°½ -->
       <form id="frm" action="ddd.jsp" method="post">
       <div class="modal" id="modal" tabindex="-1">
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header">
-                   ÇÁ·ÎÇÊ »çÁø º¯°æ
+                   í”„ë¡œí•„ ì‚¬ì§„ ë³€ê²½
                   <button class="close" data-dismiss="modal">&times;</button>
                </div>
                <div class="modal-body" style="text-align: center;">
@@ -356,14 +367,14 @@
 
                   <div class="row" style="margin-bottom: 15px; margin-top: 50px;">
                      <div class="col-sm-12">
-                        ÇÁ·ÎÇÊ »çÁø <input type="button" id="btn_profile" class="btn btn-default" value="»çÁø¼±ÅÃ" style="margin-left: 30px;">
+                        í”„ë¡œí•„ ì‚¬ì§„ <input type="button" id="btn_profile" class="btn btn-default" value="ì‚¬ì§„ì„ íƒ" style="margin-left: 30px;">
                         <input type="file" id="fileName" style="display: none;">
                      </div>
                   </div>
 
                   <div class="row" style="margin-bottom: 15px;">
                      <div class="col-sm-12">
-                      ÇÁ·ÎÇÊ »çÁøÀ» º¯°æÇÏ½Ã°Ú½À´Ï±î? <input id="btn_modify" type="button" class="btn btn-default" value="º¯°æÇÏ±â" style="margin-left: 30px;">
+                      í”„ë¡œí•„ ì‚¬ì§„ì„ ë³€ê²½í•˜ì‹œê² ìŠµë‹ˆê¹Œ? <input id="btn_modify" type="button" class="btn btn-default" value="ë³€ê²½í•˜ê¸°" style="margin-left: 30px;">
                      </div>
                   </div>
                </div>
@@ -374,9 +385,9 @@
 
 
 
-<!-- Á¦ÀÌÄõ¸® ÀÚ¹Ù½ºÅ©¸³Æ® Ãß°¡ÇÏ±â -->
+<!-- ì œì´ì¿¼ë¦¬ ìžë°”ìŠ¤í¬ë¦½íŠ¸ ì¶”ê°€í•˜ê¸° -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<!-- ºÎÆ®½ºÆ®·¦ ÀÚ¹Ù½ºÅ©¸³Æ® Ãß°¡ÇÏ±â -->
+<!-- ë¶€íŠ¸ìŠ¤íŠ¸ëž© ìžë°”ìŠ¤í¬ë¦½íŠ¸ ì¶”ê°€í•˜ê¸° -->
 <script src="../js/bootstrap.js"></script>
 <!-- <script type="text/javascript" src="../js/index/mapStoreList.js"></script> -->
 <script>
