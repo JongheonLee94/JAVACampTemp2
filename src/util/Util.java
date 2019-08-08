@@ -43,10 +43,10 @@ public class Util {
 		String[] pathpart = fileName.split("\\.");
 		
 		File oldFile = new File(SavePath+fileName);
-		File newFile = new File(SavePath+serial.trim()+"."+pathpart[1]);
+		File newFile = new File(SavePath+serial.trim()+"."+pathpart[pathpart.length-1]);
 		
 		oldFile.renameTo(newFile);
 
-		return serial.trim()+"."+pathpart[1];
+		return serial.trim()+"."+pathpart[pathpart.length-1];
 	}
 }

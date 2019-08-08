@@ -35,7 +35,6 @@ public class ClubWriteController implements Controller {
 		ClubVO clubVO = new ClubVO();
 		clubVO.setTitle(mpr.getParameter("title"));
 		clubVO.setContent(mpr.getParameter("clubcontent"));
-		clubVO.setPrice(Util.parseInt(mpr.getParameter("clubprice")));
 		clubVO.setsDate(mpr.getParameter("clubsDate")); // TO_DATA(?, 'YYYY-MM-DD HH24:MI:SS')
 		clubVO.seteDate(mpr.getParameter("clubeDate"));
 		clubVO.setMemberSerial(mpr.getParameter("memberserial"));
@@ -65,7 +64,7 @@ public class ClubWriteController implements Controller {
 		ClubDAO clubDAO = new ClubDAO_OracleImpl();
 		clubDAO.writeClub(request, clubVO, schedules);
 
-		return "redirect:/clubBoard.do";
+		return "redirect:/clubBoard.do?viewtype=visit&pagenum=1";
 	}
 
 }

@@ -11,8 +11,10 @@ public class MemberVO {
 	private Integer age = null;
 	private String picture = null;
 	private String regDate = null;
-	private String role =null;
+	private String role = null;
 	private String card = null;
+	private String cert = null;
+
 	public String getRole() {
 		return role;
 	}
@@ -37,7 +39,6 @@ public class MemberVO {
 		this.cert = cert;
 	}
 
-	private String cert = null;
 	public String getSerial() {
 		return serial;
 	}

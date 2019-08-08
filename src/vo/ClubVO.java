@@ -4,7 +4,7 @@ public class ClubVO {
 	String serial = null;
 	String title = null;
 	String content = null;
-	Integer price = null;
+	Integer visit = null;
 	String sDate = null;
 	String eDate = null;
 	String mainPic = null;
@@ -28,11 +28,11 @@ public class ClubVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Integer getPrice() {
-		return price;
+	public Integer getVisit() {
+		return visit;
 	}
-	public void setPrice(Integer price) {
-		this.price = price;
+	public void setVisit(Integer visit) {
+		this.visit = visit;
 	}
 	public String getsDate() {
 		return sDate;
