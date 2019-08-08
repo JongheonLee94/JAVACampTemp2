@@ -121,5 +121,29 @@ public class ClubDAO_OracleImpl implements ClubDAO{
 		}
 
 	}
+	
+	@Override
+	   public int maxPage() {
+	      Connection conn = null;
+	      PreparedStatement stmt = null;
+	      ResultSet rs = null;
+	      int result = 0;
+	      try {
+	         conn = Util.getConn();
+	         String sql = "SELECT count(*) as maxPage FROM club";
+	         stmt = conn.prepareStatement(sql);
+	         rs = stmt.executeQuery();
+	         if(rs.next()) {
+	            result = rs.getInt("maxPage");
+	         }
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         if (rs != null) {try {rs.close();} catch (SQLException e) {e.printStackTrace();}}
+	         if (conn != null) {try {conn.close();} catch (SQLException e) {e.printStackTrace();}}
+	         if (stmt != null) {try {stmt.close();} catch (SQLException e) {e.printStackTrace();}}
+	      }
+	      return result;
+	   }
 
 }

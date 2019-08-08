@@ -10,4 +10,5 @@ import vo.ScheduleVO;
 public interface ClubDAO {
 	public void writeClub(HttpServletRequest request, ClubVO clubVO, List<ScheduleVO> schedules);
 	public List<ClubVO> getClub(String type, int page);
+	public int maxPage();
 }
