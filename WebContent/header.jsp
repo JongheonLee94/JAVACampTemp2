@@ -1,13 +1,18 @@
+<%@page import="vo.GuestVO"%>
 <%@page import="vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="EUC-KR"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jc"%><%!MemberVO vo = null;%>
-<%
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jc"%><%!MemberVO vo = null; GuestVO gvo=null;%>
+<%	
+	 gvo= (GuestVO) session.getAttribute("guest");
+	if(gvo!=null)
+	System.out.println(gvo.getPhone());
 	vo = (MemberVO) session.getAttribute("member");
 	if (vo != null)
 		System.out.println(vo.getEmail());
-
+	
 	pageContext.setAttribute("vo", vo);
+	pageContext.setAttribute("gvo", gvo);
 %>
   <header>
     <nav class="navbar" style="border-width: 0px 0px 2px; border-color: rgb(149, 99, 0); border-style: solid;">
@@ -36,13 +41,7 @@
               </a>
               <ul  class="dropdown-menu" style="">
               <jc:choose>
-							<jc:when test="${vo==null}">
-              
-              
-                <li><a href="/JSP/login/login.jsp">로그인</a></li>
-                <li><a href="/JSP/join/join.jsp">회원가입</a></li>
-            
-              </jc:when>
+						
               <jc:when test="${vo.getEmail()!=null}">
               
                 <li><a href="/JSP/mypage/mypageMain.jsp">마이페이지</a></li>
@@ -50,6 +49,20 @@
               
               
               			</jc:when>
+              			        <jc:when test="${gvo!=null}">
+              
+                <li>guest</li>
+                <li><a href="/JSP/logout.do">로그아웃</a></li>
+              
+              
+              			</jc:when>
+              				<jc:when test="${vo==null}">
+              
+              
+                <li><a href="/JSP/login/login_guest.jsp">로그인</a></li>
+                <li><a href="/JSP/join/join.jsp">회원가입</a></li>
+            
+              </jc:when>
               			</jc:choose>
               </ul>
             </li>

@@ -12,8 +12,10 @@ public class LogoutController implements Controller{
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
+		if(session.getAttribute("member")!=null)
 		session.removeAttribute("member");
-		
+		if(session.getAttribute("guest")!=null)
+			session.removeAttribute("guest");
 		return "redirect:/index.jsp";
 	}
 	

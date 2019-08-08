@@ -12,6 +12,7 @@
             controller.LogoutController,
             controller.ClubWriteController,
             controller.ClubBoardController,
+            controller.GuestLoginController,
             controller.SupportController
 			</param-value>
     </init-param>
