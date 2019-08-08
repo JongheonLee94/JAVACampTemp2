@@ -11,7 +11,33 @@ public class MemberVO {
 	private Integer age = null;
 	private String picture = null;
 	private String regDate = null;
+	private String role =null;
+	private String card = null;
+	public String getRole() {
+		return role;
+	}
 
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getCard() {
+		return card;
+	}
+
+	public void setCard(String card) {
+		this.card = card;
+	}
+
+	public String getCert() {
+		return cert;
+	}
+
+	public void setCert(String cert) {
+		this.cert = cert;
+	}
+
+	private String cert = null;
 	public String getSerial() {
 		return serial;
 	}

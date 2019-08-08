@@ -174,7 +174,7 @@
 	<span style="margin-right : 20px;"><a href="#">평점순</a></span>
 	<span><a href="#">최신순</a></span>
 	<span id="moim1" style="float:right;">
-		<a class="btn btn-warning" href="clubWrite.html" role="button">모임 개설하기</a></span>
+		<a class="btn btn-warning" href="clubWrite.jsp" role="button">모임 개설하기</a></span>
 </div>
 
 <!-- 3. Main -->
